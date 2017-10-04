@@ -16,7 +16,9 @@ class FossDependenciesPlugin : Plugin<Project> {
 
         setupReportPlugin(project, extension)
 
-        val reportTask = project.getTasksByName("generateLicenseReport", false)
+        val reportTask = project.getTasksByName("generateLicenseReport", false).first()
+        reportTask.setOnlyIf { true }
+        reportTask.outputs.upToDateWhen { false }
 
         project.task(mapOf("type" to GenerateFossDependenciesTask::class.java), "generateFossDependencies").apply {
             dependsOn(reportTask)
