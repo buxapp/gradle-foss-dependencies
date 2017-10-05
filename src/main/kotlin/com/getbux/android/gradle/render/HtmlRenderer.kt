@@ -6,7 +6,6 @@ import com.github.jk1.license.ProjectData
 import com.github.jk1.license.render.ReportRenderer
 import org.gradle.api.logging.Logging
 import java.io.File
-import java.lang.StringBuilder
 import java.security.InvalidParameterException
 
 class HtmlRenderer(val fileName: String = "foss_dependencies.html") : ReportRenderer {

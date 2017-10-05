@@ -1,20 +1,23 @@
 package com.getbux.android.gradle
 
 import com.getbux.android.gradle.render.HtmlRenderer
-import com.getbux.android.gradle.render.ManualLicense
 import com.getbux.android.gradle.task.GenerateFossDependenciesTask
 import com.github.jk1.license.LicenseReportPlugin
 import org.gradle.api.Plugin
 import org.gradle.api.Project
+import org.gradle.api.plugins.ExtensionAware
 
 @Suppress("unused")
 class FossDependenciesPlugin : Plugin<Project> {
 
-    override fun apply(project: Project) {
-        val extension = Extension()
-        project.extensions.add("fossDependencies", extension)
+    lateinit var extension: FossDependenciesExtension
+    lateinit var extensionDependencies: FossDependenciesExtension.DependenciesExtension
 
-        setupReportPlugin(project, extension)
+    override fun apply(project: Project) {
+        extension = project.extensions.create("fossDependencies", FossDependenciesExtension::class.java)
+        extensionDependencies = (extension as ExtensionAware).extensions.create("dependencies", FossDependenciesExtension.DependenciesExtension::class.java)
+
+        setupReportPlugin(project)
 
         val reportTask = project.getTasksByName("generateLicenseReport", false).first()
         reportTask.setOnlyIf { true }
@@ -25,7 +28,7 @@ class FossDependenciesPlugin : Plugin<Project> {
         }
     }
 
-    private fun setupReportPlugin(project: Project, extension: Extension) {
+    private fun setupReportPlugin(project: Project) {
         project.apply(mapOf("plugin" to LicenseReportPlugin::class.java))
 
         val htmlRenderer = HtmlRenderer()
@@ -37,16 +40,9 @@ class FossDependenciesPlugin : Plugin<Project> {
         project.afterEvaluate {
             htmlRenderer.title = extension.htmlTitle
             htmlRenderer.fileDir = reportExtension.outputDir
-            htmlRenderer.ignoredDependenciesRegExes = extension.ignoredDependencies.map { Regex(it.replace("*", ".*")) }
-            htmlRenderer.manualLicenses = extension.manualLicenses.mapKeys { Regex(it.key.replace("*", ".*")) }
+            htmlRenderer.ignoredDependenciesRegExes = extensionDependencies.ignoredDependencies
+            htmlRenderer.manualLicenses = extensionDependencies.manualLicenses
         }
-    }
-
-    class Extension {
-        var outputFile: String? = null
-        var htmlTitle: String? = null
-        var ignoredDependencies: Array<String> = emptyArray()
-        var manualLicenses: Map<String, ManualLicense> = emptyMap()
     }
 
 }
