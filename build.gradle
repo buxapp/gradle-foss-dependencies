@@ -23,7 +23,7 @@ repositories {
 dependencies {
     compile gradleApi()
     compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
-    compile 'com.github.tinsukE:Gradle-License-Report:acee9f9'
+    compile 'com.github.tinsukE:Gradle-License-Report:3547672'
 }
 
 task sourcesJar(type: Jar, dependsOn: classes) {
