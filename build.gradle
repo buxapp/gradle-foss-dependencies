@@ -23,7 +23,7 @@ repositories {
 dependencies {
     compile gradleApi()
     compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion"
-    compile 'gradle.plugin.com.github.jk1:gradle-license-report:0.5.0'
+    compile 'gradle.plugin.com.github.jk1:gradle-license-report:0.4.0'
 }
 
 task sourcesJar(type: Jar, dependsOn: classes) {
