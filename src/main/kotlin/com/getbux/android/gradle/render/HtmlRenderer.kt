@@ -19,6 +19,7 @@ class HtmlRenderer(val fileName: String = "foss_dependencies.html") : ReportRend
 
     override fun render(data: ProjectData) {
         val modules = data.allDependencies.toMutableSet()
+        LOGGER.debug("Modules dump: ${JsonBuilder(modules).toPrettyString()}")
         removeIgnoredModules(modules)
 
         val licensedModules = resolveLicenses(modules).distinct()
