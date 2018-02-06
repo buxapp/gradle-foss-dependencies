@@ -4,6 +4,7 @@ import com.getbux.android.gradle.extension.id
 import com.github.jk1.license.ModuleData
 import com.github.jk1.license.ProjectData
 import com.github.jk1.license.render.ReportRenderer
+import groovy.json.JsonBuilder
 import org.gradle.api.logging.Logging
 import java.io.File
 import java.security.InvalidParameterException
@@ -99,7 +100,9 @@ class HtmlRenderer(val fileName: String = "foss_dependencies.html") : ReportRend
 
     private fun extractLicense(module: ModuleData): FossLicense {
         val moduleLicenses = mutableListOf<String>()
+        module.manifests.forEach { LOGGER.debug("ManifestData: ${JsonBuilder(it).toPrettyString()}") }
         module.manifests.mapNotNullTo(moduleLicenses) { it.license }
+        module.poms.flatMap { it.licenses }.forEach { LOGGER.debug("POM License: ${JsonBuilder(it).toPrettyString()}") }
         module.poms.flatMap { it.licenses }.mapNotNullTo(moduleLicenses) { it.name }
 
         val fossLicense = FossLicense.values().find { license ->
