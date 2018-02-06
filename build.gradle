@@ -17,13 +17,16 @@ group = 'com.github.buxapp'
 
 repositories {
     jcenter()
-    maven { url 'https://plugins.gradle.org/m2/' }
+    maven { url 'https://jitpack.io' }
+//    maven { url 'https://plugins.gradle.org/m2/' }
 }
 
 dependencies {
     compile gradleApi()
     compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion"
-    compile 'gradle.plugin.com.github.jk1:gradle-license-report:0.4.0'
+//    compile 'com.github.tinsukE:Gradle-License-Report:8624a0a'
+//    compile 'gradle.plugin.com.github.jk1:gradle-license-report:0.4.0'
+    compile 'com.github.jk1:Gradle-License-Report:728b078'
 }
 
 task sourcesJar(type: Jar, dependsOn: classes) {
