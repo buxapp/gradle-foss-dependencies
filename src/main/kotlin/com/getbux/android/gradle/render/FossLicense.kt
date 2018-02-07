@@ -25,7 +25,9 @@ limitations under the License.
 """),
 
     BSD2(arrayOf("2-Clause BSD License",
-            "BSD 2-Clause License"),
+            "BSD 2-Clause License",
+            "https://opensource.org/licenses/bsd-license.php",
+            "https://opensource.org/licenses/BSD-2-Clause"),
 """
 Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
 
@@ -37,7 +39,8 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
 """),
 
     BSD3(arrayOf("3-Clause BSD License",
-            "BSD License"),
+            "BSD License",
+            "https://opensource.org/licenses/BSD-3-Clause"),
 """
 Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
 
@@ -74,7 +77,8 @@ on the JDOM Project, please see <http://www.jdom.org/>.
 
     MIT(arrayOf("MIT License",
             "The MIT License (MIT)",
-            "MIT"),
+            "MIT",
+            "https://opensource.org/licenses/MIT"),
 """
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
@@ -84,7 +88,8 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 """),
 
     EPL(arrayOf("Eclipse Public License",
-            "Eclipse Public License - v 1.0"),
+            "Eclipse Public License - v 1.0",
+            "https://www.eclipse.org/legal/epl-v10.html"),
 """
 THE ACCOMPANYING PROGRAM IS PROVIDED UNDER THE TERMS OF THIS ECLIPSE PUBLIC LICENSE ("AGREEMENT"). ANY USE, REPRODUCTION OR DISTRIBUTION OF THE PROGRAM CONSTITUTES RECIPIENT'S ACCEPTANCE OF THIS AGREEMENT.
 
