@@ -30,7 +30,10 @@ class HtmlRenderer(val fileName: String = "foss_dependencies.html") : ReportRend
 
         val groupedModules = licensedModules.groupBy { it.license }
 
-        groupedModules.keys.sortedWith(compareBy(FossLicense::name)).forEach { license ->
+        groupedModules.keys
+                .filter { !it.isPublicDomain }
+                .sortedWith(compareBy(FossLicense::name))
+                .forEach { license ->
             val moduleLicenses = groupedModules[license]!!.sortedWith(compareBy(ModuleLicense::name))
             output.appendText(renderLicense(license, moduleLicenses))
         }
