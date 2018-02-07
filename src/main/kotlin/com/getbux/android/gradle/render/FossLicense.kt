@@ -26,6 +26,7 @@ limitations under the License.
 
     BSD2(arrayOf("2-Clause BSD License",
             "BSD 2-Clause License",
+            "http://www.opensource.org/licenses/bsd-license.php",
             "https://opensource.org/licenses/bsd-license.php",
             "https://opensource.org/licenses/BSD-2-Clause"),
 """
@@ -40,6 +41,7 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
 
     BSD3(arrayOf("3-Clause BSD License",
             "BSD License",
+            "New BSD License",
             "https://opensource.org/licenses/BSD-3-Clause"),
 """
 Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
