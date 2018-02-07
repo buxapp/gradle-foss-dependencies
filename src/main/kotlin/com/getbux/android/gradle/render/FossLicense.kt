@@ -8,7 +8,8 @@ enum class FossLicense(val names: Array<String>, val notice: String) {
             "Apache License 2.0",
             "The Apache License, Version 2.0",
             "The Apache Software License, Version 2.0",
-            "Apache License Version 2.0"),
+            "Apache License Version 2.0",
+            "http://www.apache.org/licenses/LICENSE-2.0.txt"),
 """
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
